@@ -26,32 +26,33 @@ CreditCardApproval/
 │   ├── data_preprocessing/
 │   │   ├── __init__.py
 │   │   ├── dataframe_manipulation.py  # Data loading and cleaning
-│   │   └── dataframe_preprocessing.py  # Encoding and scaling
+│   │   └── dataframe_preprocessing.py # Encoding and scaling
 │   └── models/
 │       ├── __init__.py
-│       ├── preprocessing.py            # Model preprocessing utilities
-│       ├── training.py                 # Model training functions
-│       └── scoring.py                  # Model evaluation functions
+│       ├── preprocessing.py           # Logistic regression & hyperparameter search
+│       ├── training.py                # (Reserved for future training orchestration)
+│       └── scoring.py                 # (Reserved for future evaluation helpers)
 ├── scripts/
 │   ├── __init__.py
-│   └── train.py                        # Main training script
-├── notebooks/                           # Jupyter notebooks for exploration
-│   ├── Credit cards project.ipynb
-│   └── ws.ipynb
+│   └── train.py                       # Main training script (end-to-end pipeline)
+├── notebooks/                         # Jupyter notebooks for exploration
+│   └── credit_cards_project.ipynb
 ├── config/
 │   ├── __init__.py
-│   └── config.yaml                     # Configuration file
-├── tests/                               # Test directory
-│   └── __init__.py
-├── models/                              # Saved model files (gitignored)
+│   └── config.yaml                    # Configuration file
+├── tests/                             # Test directory
+│   ├── __init__.py
+│   ├── conftest.py                    # Shared pytest fixtures
+│   └── test_data_preprocessing.py     # Unit tests for preprocessing
+├── models/                            # Saved model files (gitignored)
 │   └── .gitkeep
-├── logs/                                # Log files (gitignored)
+├── logs/                              # Log files (gitignored)
 │   └── .gitkeep
-├── utils/                               # Utility functions
+├── utils/                             # Utility functions
 │   └── __init__.py
-├── pyproject.toml                       # Project configuration and dependencies
-├── .pre-commit-config.yaml             # Pre-commit hooks configuration
-└── README.md                            # This file
+├── pyproject.toml                     # Project configuration and dependencies
+├── .pre-commit-config.yaml           # Pre-commit hooks configuration
+└── README.md                          # This file
 ```
 
 ## Requirements
@@ -140,7 +141,7 @@ You can also use the modules programmatically:
 
 2. **Train the model:**
    ```python
-   from src.models import logistic_regression, best_logistic_regression
+   from src.models.preprocessing import logistic_regression, best_logistic_regression
 
    # Train with default parameters
    accuracy, cm = logistic_regression(X_train_scaled, y_train)
